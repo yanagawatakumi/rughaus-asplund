@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASPLUND Order Generator (Static)</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>ASPLUND Order Generator</h1>
+    <p class="subtitle">Cloudflare Pages static edition</p>
+
+    <section class="card">
+      <label for="csvFile">CSV file</label>
+      <input id="csvFile" type="file" accept=".csv" />
+
+      <label for="manufacturer">Manufacturer</label>
+      <input id="manufacturer" type="text" value="ASPLUND" />
+
+      <button id="runBtn" type="button">Generate ZIP</button>
+    </section>
+
+    <section class="card">
+      <h2>Result</h2>
+      <div id="summary">No run yet.</div>
+      <ul id="generatedList"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Validation Issues</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>CSV Row</th>
+              <th>Order ID</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody id="issuesBody">
+            <tr><td colspan="3">No issues.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+</html>
